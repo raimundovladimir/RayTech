@@ -1,0 +1,354 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background: #f5f5f5;
+}
+
+.container {
+  width: min(2950px, 90%);
+
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: 1px solid #e0e0e0;
+  z-index: 100;
+  backdrop-filter: blur(10px);
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.logo {
+  display: flex;
+  align-items: left;
+  gap: 0.9rem;
+  padding-left: 2.5rem;
+  width: auto;
+  height: 50px;
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  background: #3f51b5;
+  color: white;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.logo h1 {
+  font-size: 1.15rem;
+  margin-bottom: 0.2rem;
+}
+
+.logo p {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.site-nav {
+  align-items: right;
+  padding-right: 2.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.site-nav a {
+  color: #333;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.hero {
+  padding: 1rem 1rem 3rem;
+}
+
+.hero-content {
+  display: grid;
+  place-items: center;
+  width: 120%;
+}
+
+.hero-image {
+  position: relative;
+  width: calc(100vw - 2rem);
+  max-width: calc(100vw - 2rem);
+  height: 75vh;
+  margin: 0 auto;
+}
+
+.hero-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 0;
+  object-fit: cover;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text-box {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: min(320px, 90%);
+  padding: 1.35rem 1.25rem;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.hero-text-box h2 {
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  margin-bottom: 0.75rem;
+}
+
+.hero-text-box p {
+  margin-bottom: 0.85rem;
+  color: #333;
+  line-height: 1.5;
+}
+
+.hero-text-box .site-name {
+  font-weight: 700;
+  color: #3f51b5;
+}
+
+.section {
+  padding: 3rem 0;
+  padding-left: 4.5rem;
+}
+
+.section h3 {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.section h3::after {
+  content: "";
+  display: block;
+  width: 210px;
+  height: 4px;
+  margin-top: 0.75rem;
+  background: linear-gradient(60deg, rgba(63,81,181,0.9), rgba(56, 72, 163, 0.082));
+  border-radius: 999px;
+}
+
+.LINES {
+  display: block;
+  width: 260px;
+  height: 4px;
+  margin: 1rem auto;
+  background: linear-gradient(90deg, rgba(63,81,181,0.85), rgba(63,81,181,0.85));
+  border-radius: 999px;
+}
+
+.section p {
+  max-width: 760px;
+  color: #4a4a4a;
+}
+
+.about-box {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+  max-width: 760px;
+    flex: 1 1 0;
+  min-width: 0;
+}
+
+.Project-box {
+  background: #fff;
+  padding: 2rem;
+  padding-bottom: 3rem;
+  border-radius: 18px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  min-height: calc(100vh - 13rem);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Projects grid: place Project-box items side-by-side on wide screens */
+.projects-grid {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  padding-right: 4.5rem;
+}
+
+.projects-grid .Project-box {
+  flex: 1 1 7%;
+  max-width: none;
+  min-width: 260px;
+}
+
+
+.projects-grid .Project-box {
+  flex: 1 1 7%;
+  max-width: none;
+  min-width: 260px;
+}
+
+.image-SHADOWS {
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 0.85rem;
+  padding-bottom: 1rem;
+}
+
+.image-SHADOWS img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Multiple images side-by-side in second project (Roblox) */
+.projects-grid .Project-box:nth-child(2) .image-SHADOWS {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.projects-grid .Project-box:nth-child(2) .image-SHADOWS img {
+  flex: 1;
+}
+
+/* Make the second project card and its image larger on wide screens */
+.projects-grid .Project-box:nth-child(1),
+.projects-grid .Project-box:nth-child(2) {
+  flex: 1 1 10%;
+  padding: 2.5rem;
+}
+
+.projects-grid .Project-box:nth-child(1) .image-SHADOWS img,
+.projects-grid .Project-box:nth-child(2) .image-SHADOWS img {
+  height: 360px;
+  width: 40%;
+  object-fit: cover;
+}
+
+@media (max-width: 760px) {
+  .projects-grid .Project-box:nth-child(2) .image-SHADOWS img {
+    height: auto;
+  }
+}
+
+@media (max-width: 760px) {
+  .projects-grid .Project-box {
+    flex: 1 1 10%;
+  }
+}
+
+.Contact-box {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 18px;
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.08);
+  max-width: 760px;
+}
+
+/* About section: text with image to the right */
+.about-container {
+  display: flex;
+  gap: 1.5rem;
+  align-items: flex-start;
+  max-width: 1800px;
+}
+
+.image-SHADOWS img {
+  width: 260px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.61);
+}
+
+@media (max-width: 760px) {
+  .about-container {
+    flex-direction: column;
+  }
+  .about-image img {
+    width: 100%;
+    max-width: 420px;
+  }
+}
+
+.section {
+  position: relative;
+}
+
+.hero-text-box .LINES {
+  display: block;
+  width: 260px;
+  height: 4px;
+  margin: 1rem auto;
+  background: linear-gradient(90deg, rgba(63,81,181,0.85), rgba(63,81,181,0.85));
+  border-radius: 999px;
+}
+
+#about::before {
+  top: 0;
+  left: 4.5rem;
+}
+
+#about::after {
+  bottom: 0;
+  right: 4.5rem;
+  transform: rotate(180deg);
+}
+
+#work::before {
+  top: 0;
+  right: 4.5rem;
+}
+
+#contact::after {
+  bottom: 0;
+  left: 4.5rem;
+}
+
+@media (min-width: 900px) {
+  .hero-content {
+    grid-template-columns: 1.1fr 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .hero {
+    padding-top: 3rem;
+  }
+}
