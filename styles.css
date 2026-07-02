@@ -189,7 +189,11 @@ body {
   min-height: calc(100vh - 13rem);
   max-width: 900px;
   margin: 0 auto;
+   position: relative;
+  overflow: hidden;
 }
+
+
 
 /* Projects grid: place Project-box items side-by-side on wide screens */
 .projects-grid {
@@ -199,12 +203,13 @@ body {
   flex-wrap: wrap;
   margin-top: 1rem;
   padding-right: 4.5rem;
-}
+   }
 
 .projects-grid .Project-box {
   flex: 1 1 7%;
   max-width: none;
   min-width: 260px;
+   
 }
 
 
@@ -251,6 +256,85 @@ body {
   height: 360px;
   width: 40%;
   object-fit: cover;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 860px) {
+  .container,
+  .hero-content,
+  .hero-image,
+  .projects-grid,
+  .section {
+    width: 100%;
+    max-width: 100%;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-image {
+    height: auto;
+  }
+
+  .hero-text-box {
+    position: static;
+    margin-top: 1rem;
+    width: 100%;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding-right: 0;
+  }
+
+  .projects-grid {
+    flex-direction: column;
+    gap: 1rem;
+    padding-right: 0;
+  }
+
+  .projects-grid .Project-box {
+    min-height: auto;
+    padding: 1.5rem;
+  }
+
+  .projects-grid .Project-box:nth-child(1) .image-SHADOWS img,
+  .projects-grid .Project-box:nth-child(2) .image-SHADOWS img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* Fixed decorations inside sections */
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+.decoration,
+.decorationforward {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.decoration rect,
+.decorationforward circle {
+  transform: none;
 }
 
 @media (max-width: 760px) {
@@ -351,4 +435,20 @@ body {
   .hero {
     padding-top: 3rem;
   }
+}
+
+.decoration {
+  position: absolute;
+  pointer-events: none;
+  top: 100px;
+  left: 50px;
+    z-index: -1; /* Behind content */
+}
+
+.decorationforward{
+  position: absolute;
+  pointer-events: none;
+  top: 100px;
+  left: 50px; 
+
 }
