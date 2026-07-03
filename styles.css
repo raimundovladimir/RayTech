@@ -226,38 +226,60 @@ body {
   padding-bottom: 1rem;
 }
 
-.image-SHADOWS img {
-  width: 100%;
+/* About section image only: fixed width thumbnail */
+.about-container .image-SHADOWS img {
+  width: 260px;
   height: auto;
   display: block;
   object-fit: cover;
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
+/* Projects image containers should scale inside cards */
+.projects-grid .Project-box .image-SHADOWS img {
+  width: auto;
+  display: block;
+  object-fit: cover;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
 /* Multiple images side-by-side in second project (Roblox) */
-.projects-grid .Project-box:nth-child(2) .image-SHADOWS {
+.projects-grid .Project-box:nth-of-type(2) .image-SHADOWS {
   display: flex;
   gap: 0.5rem;
 }
 
-.projects-grid .Project-box:nth-child(2) .image-SHADOWS img {
-  flex: 1;
+.projects-grid .Project-box:nth-of-type(2) .image-SHADOWS img {
+  flex: 1 1 0;
+  min-width: 0;
 }
 
-/* Make the second project card and its image larger on wide screens */
-.projects-grid .Project-box:nth-child(1),
-.projects-grid .Project-box:nth-child(2) {
+/* Make the first two project cards and their images larger on wide screens */
+.projects-grid .Project-box:nth-of-type(1),
+.projects-grid .Project-box:nth-of-type(2) {
   flex: 1 1 10%;
   padding: 2.5rem;
 }
 
-.projects-grid .Project-box:nth-child(1) .image-SHADOWS img,
-.projects-grid .Project-box:nth-child(2) .image-SHADOWS img {
+.projects-grid .Project-box:nth-of-type(1) .image-SHADOWS img,
+.projects-grid .Project-box:nth-of-type(2) .image-SHADOWS img {
   height: 360px;
-  width: 40%;
+  width: auto;
   object-fit: cover;
 }
 
+.Project-box {
+  position: relative;
+  box-sizing: border-box;
+}
+
+.Project-box svg {
+  position: absolute;
+  inset: 0;           /* top:0; right:0; bottom:0; left:0 */
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
 /* Responsive behavior for smaller screens */
 @media (max-width: 860px) {
   .container,
@@ -267,9 +289,8 @@ body {
   .section {
     width: 100%;
     max-width: 100%;
-    /* keep minimum padding that scales with viewport so decorations don't shift */
-    padding-right: clamp(1rem, 5vw, 2.5rem);
-    padding-left:  clamp(1rem, 5vw, 2.5rem);
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
 
   .hero-content {
@@ -302,9 +323,7 @@ body {
   .projects-grid {
     flex-direction: column;
     gap: 1rem;
-    /* keep some horizontal padding on small screens so shapes keep their position */
-    padding-right: clamp(1rem, 5vw, 2.5rem);
-    padding-left: clamp(1rem, 5vw, 2.5rem);
+    padding-right: 0;
   }
 
   .projects-grid .Project-box {
@@ -334,7 +353,6 @@ body {
   height: 100%;
   pointer-events: none;
 }
-
 
 .decoration rect,
 .decorationforward circle {
@@ -370,7 +388,6 @@ body {
 }
 
 .image-SHADOWS img {
-  width: 260px;
   height: auto;
   border-radius: 12px;
   object-fit: cover;
